@@ -6,6 +6,9 @@ tags: [boostcamp, ai math, level 1, week 1]	# TAG names should always be lowerca
 math: true
 ---
 
+- [FIRST CHAPTER](#first-chapter)
+- [SECOND CHAPTER](#second-chapter)
+- [THIRD CHAPTER](#third-chapter)
 
 # FIRST CHAPTER
 

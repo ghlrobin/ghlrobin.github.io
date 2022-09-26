@@ -11,7 +11,7 @@ math: true
 * 기초문법이 numpy랑 비슷하다 (numpy + AutoGrad)
 * numpy만 잘 알아도 쉽게 사용이 가능하다 (TensorFlow도 마찬가지)
 * autograd 표현이 조금 다르다
-* 수식들을 어떻게 쓸 수 있는지 소개를 한다
+* 수식들을 어떻게 쓸 수 있는지 소개를 한다.
 
 - - -
 # PyTorch Operations

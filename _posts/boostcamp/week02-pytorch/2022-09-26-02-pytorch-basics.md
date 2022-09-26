@@ -14,7 +14,7 @@ math: true
   - [Tensor data types](#tensor-data-types)
   - [Numpy like operations](#numpy-like-operations)
   - [Tensor Handling](#tensor-handling)
-- [Tensor operations for ML/DL formula](#tensor-operations-for-mldl-formula)
+- [Tensor operations for ML and DL formula](#tensor-operations-for-ml-and-dl-formula)
 - [AutoGrad](#autograd)
 
 # 개요
@@ -198,7 +198,7 @@ t2 = torch.FloatTensor(n2)
 t1.mm(t2)
 ```
 - - -
-# Tensor operations for ML/DL formula
+# Tensor operations for ML and DL formula
 
 - `nn.functional`` 모듈을 통해 다양한 수식 변환을 지원한다
 - 그냥 필요할 때 찾아보면 된다.

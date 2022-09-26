@@ -6,9 +6,16 @@ tags: [boostcamp, pytorch, level 1, week 2]	# TAG names should always be lowerca
 math: true
 ---
 
-- [FIRST CHAPTER](#first-chapter)
-- [SECOND CHAPTER](#second-chapter)
-- [THIRD CHAPTER](#third-chapter)
+- [개요](#개요)
+- [Pytorch Operations](#pytorch-operations)
+  - [Tensor](#tensor)
+  - [Numpy to Tensor](#numpy-to-tensor)
+  - [Array to Tensor](#array-to-tensor)
+  - [Tensor data types](#tensor-data-types)
+  - [Numpy like operations](#numpy-like-operations)
+  - [Tensor Handling](#tensor-handling)
+- [Tensor operations for ML/DL formula](#tensor-operations-for-mldl-formula)
+- [AutoGrad](#autograd)
 
 # 개요
 
@@ -163,8 +170,73 @@ b
 >>> tensor([[1., 1., 1.],
             [1., 1., 1.]])
 ```
+```python
+# 2d tensor
+ex = torch.tensor([[1, 2], [3, 4]])
+ex.unsqueeze(0)
+>>> [[1, 2],
+     [3, 4]]       # dim: 1, 2, 2
 
+ex.unsqueeze(1)
+>>> [[[1,2]],
+     [[3,4]]]   # dim: 2, 1, 2
 
+ex.unsqueeze(2)
+>>>  [[[1], [2]],
+      [[3], [4]]]   #  dim: 2, 2, 1
+```
+
+* 행렬곱셈 연산 함수는 dot이 아닌 `.mm` 사용
+* `mm`과 `matmul` 차이: `matmul`은 broadcasting 지원한다
+* 
+```python
+n1 = np.arange(10).reshape(2, 5)
+n2 = np.arange(10).reshape(5, 2)
+t1 = torch.FloatTensor(n1)
+t2 = torch.FloatTensor(n2)
+
+t1.mm(t2)
+```
+- - -
+# Tensor operations for ML/DL formula
+
+- `nn.functional`` 모듈을 통해 다양한 수식 변환을 지원한다
+- 그냥 필요할 때 찾아보면 된다.
+
+```python
+import torch
+import torch.nn.functional as F
+
+tensor = torch.FloatTensor([0.5, 0.7, 0.1])
+h_tensor = F.softmax(tensor, dim = 0)
+
+y = torch.randint(5, (10, 5))
+y_label = y.argmax(dim = 1)
+
+F.one_hot(y_label)
+
+torch.cartesian_prod(tensor_a, tensor_b)
+```
+
+# AutoGrad
+
+* PyTorch의 핵심은 자동 미분의 지원 -> `.backward()` 함수 사용
+
+```python
+w = torch.tensor(2.0, requires_grad = True)
+y = w ** 2
+z = 10 * y + 25
+z.backward()
+w.grad
+>>> tensor(40.)
+
+a = torch.tensor([2., 3.], requires_grad=True)
+b = torch.tensor([6., 4.], requires_grad=True)
+Q = 3 * a ** 3 - b ** 2
+external_grad = torch.tensor([1., 1.])
+Q.backward(gradient = external_grad)
+a.grad
+>>> tensor([36., 81.])
+```
 
 - - -
-# THIRD CHAPTER

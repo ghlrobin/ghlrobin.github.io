@@ -1,5 +1,5 @@
 ---
-title: "[boostcamp AI Tech / Level 1 - PyTorch] Lecture 02 - PyTorch Basics"
+title: "[boostcamp AI Tech / Level 1 - PyTorch] Lecture 2: PyTorch Basics"
 date: 2022-09-26 10:00:00 + 0900
 categories: [boostcamp AI Tech, Level 1 / Week 2 - PyTorch]
 tags: [boostcamp, pytorch, level 1, week 2]	# TAG names should always be lowercase

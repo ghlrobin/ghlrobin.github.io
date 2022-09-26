@@ -1,5 +1,5 @@
 ---
-title: "[boostcamp AI Tech / Level 1 - PyTorch] Lecture 03 - PyTorch 프로젝트 구조 이해하기"
+title: "[boostcamp AI Tech / Level 1 - PyTorch] Lecture 3: PyTorch 프로젝트 구조 이해하기"
 date: 2022-09-26 10:00:00 + 0900
 categories: [boostcamp AI Tech, Level 1 / Week 2 - PyTorch]
 tags: [boostcamp, pytorch, level 1, week 2]	# TAG names should always be lowercase

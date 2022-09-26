@@ -23,7 +23,7 @@ timezone: Asia/Seoul
 
 title: Coding Fish                          # the main title
 
-tagline: A blog about machine coding and machine learning   # it will display as the sub-title
+tagline: A blog about coding and machine learning   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.

@@ -1,7 +1,7 @@
 ---
 title: "[boostcamp AI Tech / Level 1 - PyTorch] Day # - LECTURENAME"
 date: 2022-09-DD 10:00:00 + 0900
-categories: [boostcamp AI Tech, Level 1 - PyTorch]
+categories: [boostcamp AI Tech, Level 1 / Week 2 - PyTorch]
 tags: [boostcamp, pytorch, level 1, week 2]	# TAG names should always be lowercase
 math: true
 ---

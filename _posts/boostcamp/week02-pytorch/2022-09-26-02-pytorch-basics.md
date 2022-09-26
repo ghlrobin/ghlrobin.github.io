@@ -6,17 +6,6 @@ tags: [boostcamp, pytorch, level 1, week 2]	# TAG names should always be lowerca
 math: true
 ---
 
-- [개요](#개요)
-- [PyTorch Operations](#pytorch-operations)
-  - [Tensor](#tensor)
-  - [Numpy to Tensor](#numpy-to-tensor)
-  - [Array to Tensor](#array-to-tensor)
-  - [Tensor data types](#tensor-data-types)
-  - [Numpy like operations](#numpy-like-operations)
-  - [Tensor Handling](#tensor-handling)
-- [Tensor operations for ML and DL formula](#tensor-operations-for-ml-and-dl-formula)
-- [AutoGrad](#autograd)
-
 # 개요
 
 * 기초문법이 numpy랑 비슷하다 (numpy + AutoGrad)

@@ -7,7 +7,7 @@ math: true
 ---
 
 - [개요](#개요)
-- [Pytorch Operations](#pytorch-operations)
+- [PyTorch Operations](#pytorch-operations)
   - [Tensor](#tensor)
   - [Numpy to Tensor](#numpy-to-tensor)
   - [Array to Tensor](#array-to-tensor)
@@ -25,7 +25,7 @@ math: true
 * 수식들을 어떻게 쓸 수 있는지 소개를 한다
 
 - - -
-# Pytorch Operations
+# PyTorch Operations
 
 ## Tensor
 

@@ -177,7 +177,7 @@ ex.unsqueeze(2)
 
 * 행렬곱셈 연산 함수는 dot이 아닌 `.mm` 사용
 * `mm`과 `matmul` 차이: `matmul`은 broadcasting 지원한다
-* 
+
 ```python
 n1 = np.arange(10).reshape(2, 5)
 n2 = np.arange(10).reshape(5, 2)

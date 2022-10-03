@@ -2,7 +2,7 @@
 title: "[boostcamp AI Tech][DL Basic] Lecture 3: Optimization"
 date: 2022-10-03 11:00:00 + 0900
 categories: [boostcamp AI Tech, Week 3 - DL Basic]
-tags: [boostcamp, dl basic, level 1, week 2] # TAG names should always be lowercase
+tags: [boostcamp, dl basic, level 1, week 3] # TAG names should always be lowercase
 math: true
 ---
 

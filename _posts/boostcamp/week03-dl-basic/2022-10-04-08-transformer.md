@@ -42,9 +42,9 @@ Things we need to understand:
 
 ![](/assets/img/boostcamp/2022-10-04-12-03-27.png)
 
+- In python it's just a one liner
 - if there are $n$ words, $n^2$ operations need to be computed at once (Multi-headed attention). This is the downside of Transformers
 - To match the output, we simply pass the attention heads(encoded vectors) through additional (learnable) linear map
-
 - In summary this is what we do:
 
 ![](/assets/img/boostcamp/2022-10-04-12-09-30.png)

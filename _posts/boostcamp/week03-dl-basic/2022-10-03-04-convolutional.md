@@ -13,13 +13,13 @@ math: true
 
 # Convolution Neural Networks
 
-- Depending on the filter, 2D convolution will have different effects (Blur, Emoss, Outline, etc)
+- Depending on the filter, 2D convolution will have different effects (Blur, Emoss, Outline, etc).
 
 ![](/assets/img/boostcamp/2022-10-03-21-26-27.png)
 
 - If you want the output to have n channels, you also need to have n filters
 - To calcualte the number of parameters in the output layer after a convolution layer (given padding(1) and stride(1), 3 x 3 kernel):
-  - $\text{\# of parameters} = \text{kernel size} \times \text{\# of input channel} \times \text{\# of output channel}$
+  - $\text{\# of parameters} = \text{kernel size} \times \text{\# of input channel} \times \text{\# of output channel}$.
 
 ![](/assets/img/boostcamp/2022-10-03-21-37-21.png)
 
@@ -38,13 +38,19 @@ math: true
 
 - Padding refers to the amount of pixels added to an image to its fringe when it is being processed by the kerenl of a CNN
 - Zero padding and and stride = 1 results in the output having the same dimension as the input
+- To calculate the size of the output volume, given input volume size $W$, kernel field size $K$, $padding(P)$ and $stride(S)$ use the formul below.
+
+$$
+\text{Spatial Size of the Output Volume} = \frac{W - K + 2P}{S} + 1
+$$
+
 
 # 1x1 Convolution
 
 ![](/assets/img/boostcamp/2022-10-03-21-59-30.png)
 
 - Pixel by pixel operation
-- It's used for dimension reduction (channel-wise)
+- It's used for channel-wise dimension reduction
 - It's used to reduce the number of parameters while increasing the depth e.g. bottleneck architecture.
 
 -------------------------------

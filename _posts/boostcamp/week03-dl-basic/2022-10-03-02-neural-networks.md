@@ -28,14 +28,14 @@ math: true
 
 ![](/assets/img/boostcamp/2022-10-03-10-14-53.png)
 
-- To use multi dimensional input and output, we use vectors and matrices
-- One way to interpret a matrix is to regard it as a mapping between two vector spaces
+- To use multi-dimensional input and output, we use vectors and matrices
+- One way to interpret a matrix is to regard it as a mapping between two vector spaces.
 
 # Activation Functions
 
 ![](/assets/img/boostcamp/2022-10-03-10-16-59.png)
 
-- we add activation functions to act as non-lineaer tranformations
+- we add activation functions to act as non-linear tranformations.
 
 ![](/assets/img/boostcamp/2022-10-03-10-17-33.png)
 

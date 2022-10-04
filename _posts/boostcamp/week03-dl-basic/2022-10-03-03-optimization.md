@@ -51,36 +51,37 @@ math: true
 
 ![](/assets/img/boostcamp/2022-10-03-11-30-30.png)
 
-- How well the learned model will behave on unseen data
+- Generalization refers to how well the learned model is behaving on unseen (test) data
 - If the test error is close to training error, then the model has good generalization.
 
 ## Underfitting vs. Overfitting
 
 ![](/assets/img/boostcamp/2022-10-03-11-32-37.png)
 
-- Your model is *underfitting* the training data when the model performs poorply on the training data
-- Your model is *overfitting* your training data if you see that the model performs well on the training data but does not perform well on the test data
-  - This is because the model is memorizing the data it has seen and is unable to generalize to unseen samples.
+- The model is *underfitting* the training data when the model performs poorply on the training data
+- The model is *overfitting* the training data if the model performs well on the training data but does not perform well on the test data
+  - This is because the model is memorizing the data it has seen and is unable to generalize to unseen samples
+  - So this is an example of bad generalization.
 
 ## Cross-Validation
 
 ![](/assets/img/boostcamp/2022-10-03-11-36-22.png)
 
 - *Cross-Validation* is a model validation technique for assessing how the model will generalize to an independent (test) data set.
-- It is also called *K-Fold Validation*
+- It is also called *K-Fold Validation*.
 
 ## Bias and Variance
 
 ![](/assets/img/boostcamp/2022-10-03-11-41-40.png)
 
-- Variance: How close are the outputs given similar inputs? Low Variance = outputs close together
-- Bias: How close is the output to the target? Low Bias = output close to target
+- Variance: How close are the outputs given similar inputs? Low Variance = outputs are close together
+- Bias: How close is the output to the target? Low Bias = outputs are close to target
 
 ## Bootstrapping
 
 ![](/assets/img/boostcamp/2022-10-03-11-43-34.png)
 
-- Bootstrapping in any test or metric that uses random sampling with replacement
+- Bootstrapping is any test or metric that uses random sampling with replacement
 - And then we check the consensus of the models to test *uncertainty*
   
 ## Bagging vs. Boosting
@@ -88,7 +89,7 @@ math: true
 ![](/assets/img/boostcamp/2022-10-03-11-48-46.png)
 
 - Bagging is short for Bootstrapping aggregating
-  - Multiple models are being trained with bootstrapping
+  - Multiple models are trained with bootstrapping
   - ex) Base classifiers are fitted on random subset where indivdual predictions are aggregated (voting or averaging)
   - Often use Ensemble technique
 - Boosting
@@ -122,7 +123,7 @@ math: true
 - Adagrad
 - Adadelta
 - RMSprop
-- Adam
+- Adam.
 
 ## Gradient Descent
 
@@ -130,9 +131,9 @@ $$
   W_{t+1} \leftarrow W_{t} - \eta g_{t}
 $$
 
-where $W = weight$, $g_t = gradient$ and $\eta = learning \space rate$
+- where $W = weight$, $g_t = gradient$ and $\eta = learning \space rate$
 
-- It's important to choose the appropriate learning rate
+- It's important to choose the appropriate learning rate.
 
 ## Momentum
 
@@ -231,13 +232,13 @@ where $m_t$ = momentum, $v_t$ = EMA of gradient squares and $\frac{\sqrt{1-\beta
 # Regularization
 
 - Tools used to make better generalizations
-- Early stopping
-- Parameter norm penalty
-- Data augmentation
-- Noise robustness
-- Label smoothing
-- Dropout
-- Batch normalization
+  1. Early stopping
+  2. Parameter norm penalty
+  3. Data augmentation
+  4. Noise robustness
+  5. Label smoothing
+  6. Dropout
+  7. Batch normalization
 
 ## Early Stopping
 
@@ -254,12 +255,12 @@ $$
 $$
 
 - also called weight decay
-- prevents parameter from exploding by also minimizing the Parameter Norm Penalty, $\frac{\alpha}{2}||W||_2^2$
+- prevents parameter from exploding by also minimizing the Parameter Norm Penalty, $\frac{\alpha}{2}||W||_2^2$.
 
 ## Data Augmentation
 
 - More data the better
-- Artificially increase the number of data by undergoing label preserving augmentations (strech, rotate, etc)
+- Artificially increase the number of data by undergoing label preserving augmentations (strech, rotate, etc).
 
 ## Noise Robustness
 
@@ -291,7 +292,7 @@ $$
 \end{aligned}
 $$
 
-- There are other norms like Layer Norm, Instance Norm and Group Norm
+- There are other norms like Layer Norm, Instance Norm and Group Norm.
 
 ![](/assets/img/boostcamp/2022-10-03-13-45-04.png)
 

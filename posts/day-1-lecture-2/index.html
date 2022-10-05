@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="[boostcamp AI Tech][Python] Lecture 2: Basic Python" /><meta property="og:locale" content="en" /><meta name="description" content="Variables Variable and Memory 변수 이름 작명법 기본 자료형 (Primitive Data Types) List 또는 Array 정의 indexing slicing 리스트 연산 메모리 저장 방식 패킹과 언패킹 이차원 리스트 Function &amp; Console I/O Function 함수의 개요 함수 수행 순서 Parameter vs Argument 함수 형태 콘솔창 입출력 Conditional() 조건문이란? 논리 키워드 사용: and, or, not Loop(반복문) 반복문이란? 반복의 제어: break, continue String 개요 1 byte의 메모리 공간??? 프로그램 언어에서 데이터 타입 문자열 특징 Advanced Function Concept 함수 호출 방식 개요 Scoping Rule (변수의 범위) Recursive Function (재귀함수) Function Type Hints Function docstring" /><meta property="og:description" content="Variables Variable and Memory 변수 이름 작명법 기본 자료형 (Primitive Data Types) List 또는 Array 정의 indexing slicing 리스트 연산 메모리 저장 방식 패킹과 언패킹 이차원 리스트 Function &amp; Console I/O Function 함수의 개요 함수 수행 순서 Parameter vs Argument 함수 형태 콘솔창 입출력 Conditional() 조건문이란? 논리 키워드 사용: and, or, not Loop(반복문) 반복문이란? 반복의 제어: break, continue String 개요 1 byte의 메모리 공간??? 프로그램 언어에서 데이터 타입 문자열 특징 Advanced Function Concept 함수 호출 방식 개요 Scoping Rule (변수의 범위) Recursive Function (재귀함수) Function Type Hints Function docstring" /><link rel="canonical" href="https://ghlrobin.github.io/posts/day-1-lecture-2/" /><meta property="og:url" content="https://ghlrobin.github.io/posts/day-1-lecture-2/" /><meta property="og:site_name" content="Coding Fish" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-09-19T10:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[boostcamp AI Tech][Python] Lecture 2: Basic Python" /><meta name="twitter:site" content="@twitter_username" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-27T02:41:40+09:00","datePublished":"2022-09-19T10:00:00+09:00","description":"Variables Variable and Memory 변수 이름 작명법 기본 자료형 (Primitive Data Types) List 또는 Array 정의 indexing slicing 리스트 연산 메모리 저장 방식 패킹과 언패킹 이차원 리스트 Function &amp; Console I/O Function 함수의 개요 함수 수행 순서 Parameter vs Argument 함수 형태 콘솔창 입출력 Conditional() 조건문이란? 논리 키워드 사용: and, or, not Loop(반복문) 반복문이란? 반복의 제어: break, continue String 개요 1 byte의 메모리 공간??? 프로그램 언어에서 데이터 타입 문자열 특징 Advanced Function Concept 함수 호출 방식 개요 Scoping Rule (변수의 범위) Recursive Function (재귀함수) Function Type Hints Function docstring","headline":"[boostcamp AI Tech][Python] Lecture 2: Basic Python","mainEntityOfPage":{"@type":"WebPage","@id":"https://ghlrobin.github.io/posts/day-1-lecture-2/"},"url":"https://ghlrobin.github.io/posts/day-1-lecture-2/"}</script><title>[boostcamp AI Tech][Python] Lecture 2: Basic Python | Coding Fish</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Coding Fish"><meta name="application-name" content="Coding Fish"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end">
+<div class="profile-wrapper text-center">
+<div id="avatar"> <a href="/" class="mx-auto"> <img src="/assets/img/profile.PNG" alt="avatar" onerror="this.style.display='none'"> </a>
+</div>
+<div class="site-title mt-3"> <a href="/">Coding Fish</a>
+</div>
+<div class="site-subtitle font-italic">A blog about coding and machine learning</div>
+</div>
+<ul class="w-100">
+<li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a>
+</li>
+<li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a>
+</li>
+<li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a>
+</li>
+<li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a>
+</li>
+<li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a>
+</li>
+</ul>
+<div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/ghlrobin" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href="javascript:location.href%20=%20'mailto:'%20+%20%5B'ghlrobin','gmail.com'%5D.join('@')" aria-label="email"> <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss"> <i class="fas fa-rss"></i> </a>
+</div>
+</div><div id="topbar-wrapper"><div id="topbar" class="container d-flex align-items-center justify-content-between h-100 pl-3 pr-3 pl-md-4 pr-md-4"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>[boostcamp AI Tech][Python] Lecture 2: Basic Python</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div>
+<i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel">Cancel</span>
+</div></div><div id="main-wrapper" class="d-flex justify-content-center">
+<div id="main" class="container pl-xl-4 pr-xl-4">
+<div class="row">
+<div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2">
+<h1 data-toc-skip>[boostcamp AI Tech][Python] Lecture 2: Basic Python</h1>
+<div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1663549200" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Sep 19, 2022 </em> </span> <span> Updated <em class="" data-ts="1664214100" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Sep 27, 2022 </em> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://github.com/ghlrobin">Coding Fish</a> </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2139 words"> <em>11 min</em> read</span>
+</div>
+</div>
+</div>
+<div class="post-content">
+<ul>
+<li>
+<a href="#variables">Variables</a><ul>
+<li><a href="#variable-and-memory">Variable and Memory</a></li>
+<li><a href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84-%EC%9E%91%EB%AA%85%EB%B2%95">변수 이름 작명법</a></li>
+<li><a href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95-primitive-data-types">기본 자료형 (Primitive Data Types)</a></li>
+</ul>
+</li>
+<li>
+<a href="#list-%EB%98%90%EB%8A%94-array">List 또는 Array</a><ul>
+<li><a href="#%EC%A0%95%EC%9D%98">정의</a></li>
+<li><a href="#indexing">indexing</a></li>
+<li><a href="#slicing">slicing</a></li>
+<li><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%97%B0%EC%82%B0">리스트 연산</a></li>
+<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5-%EB%B0%A9%EC%8B%9D">메모리 저장 방식</a></li>
+<li><a href="#%ED%8C%A8%ED%82%B9%EA%B3%BC-%EC%96%B8%ED%8C%A8%ED%82%B9">패킹과 언패킹</a></li>
+<li><a href="#%EC%9D%B4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8">이차원 리스트</a></li>
+</ul>
+</li>
+<li>
+<a href="#function--console-io">Function &amp; Console I/O</a><ul>
+<li>
+<a href="#function">Function</a><ul>
+<li><a href="#%ED%95%A8%EC%88%98%EC%9D%98-%EA%B0%9C%EC%9A%94">함수의 개요</a></li>
+<li><a href="#%ED%95%A8%EC%88%98-%EC%88%98%ED%96%89-%EC%88%9C%EC%84%9C">함수 수행 순서</a></li>
+<li><a href="#parameter-vs-argument">Parameter vs Argument</a></li>
+<li><a href="#%ED%95%A8%EC%88%98-%ED%98%95%ED%83%9C">함수 형태</a></li>
+</ul>
+</li>
+<li><a href="#%EC%BD%98%EC%86%94%EC%B0%BD-%EC%9E%85%EC%B6%9C%EB%A0%A5">콘솔창 입출력</a></li>
+</ul>
+</li>
+<li>
+<a href="#conditional">Conditional()</a><ul>
+<li><a href="#%EC%A1%B0%EA%B1%B4%EB%AC%B8%EC%9D%B4%EB%9E%80">조건문이란?</a></li>
+<li><a href="#%EB%85%BC%EB%A6%AC-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%82%AC%EC%9A%A9-and-or-not">논리 키워드 사용: and, or, not</a></li>
+</ul>
+</li>
+<li>
+<a href="#loop%EB%B0%98%EB%B3%B5%EB%AC%B8">Loop(반복문)</a><ul>
+<li><a href="#%EB%B0%98%EB%B3%B5%EB%AC%B8%EC%9D%B4%EB%9E%80">반복문이란?</a></li>
+<li><a href="#%EB%B0%98%EB%B3%B5%EC%9D%98-%EC%A0%9C%EC%96%B4-break-continue">반복의 제어: break, continue</a></li>
+</ul>
+</li>
+<li>
+<a href="#string">String</a><ul>
+<li><a href="#%EA%B0%9C%EC%9A%94">개요</a></li>
+<li><a href="#1-byte%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84">1 byte의 메모리 공간???</a></li>
+<li><a href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85">프로그램 언어에서 데이터 타입</a></li>
+<li><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%8A%B9%EC%A7%95">문자열 특징</a></li>
+</ul>
+</li>
+<li>
+<a href="#advanced-function-concept">Advanced Function Concept</a><ul>
+<li><a href="#%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EB%B0%A9%EC%8B%9D-%EA%B0%9C%EC%9A%94">함수 호출 방식 개요</a></li>
+<li><a href="#scoping-rule-%EB%B3%80%EC%88%98%EC%9D%98-%EB%B2%94%EC%9C%84">Scoping Rule (변수의 범위)</a></li>
+<li><a href="#recursive-function-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98">Recursive Function (재귀함수)</a></li>
+<li><a href="#function-type-hints">Function Type Hints</a></li>
+<li><a href="#function-docstring">Function docstring</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="variables">Variables</h1>
+<h2 id="variable-and-memory">
+<span class="mr-2">Variable and Memory</span><a href="#variable-and-memory" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>가장 기초적인 프로그래밍 문법 개념</li>
+<li>데이터(값)을 저장하기 위한 메모리 공간의 프로그래밍상 이름</li>
+<li>메모리에 저장하는 방식</li>
+<li>변수는 <strong>메모리 주소</strong>를 가지고 있고 변수에 들어가는 값은 메모리 주소에 할당됨</li>
+</ul>
+<blockquote>
+<p>컴퓨터의 구조 - 폰 노이만(John von Neumann) 아키텍처</p>
+<p>폰 노이만 아키텍처에서는 사용자가 컴퓨터에 값을 입력하거나 프로그램을 실행할 경우 그 정보를 먼저 메모리에 저장시키고 CPU가 순차적으로 그 정보를 해석하고 계산하여 사용자에게 결과값을 전달한다.</p>
+<p><img data-src="/assets/img/boostcamp/2022-09-23-01-11-42.png" alt="" data-proofer-ignore></p>
+</blockquote>
+<h2 id="변수-이름-작명법">
+<span class="mr-2">변수 이름 작명법</span><a href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84-%EC%9E%91%EB%AA%85%EB%B2%95" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>알파벳, 숫자, 언더스코어(_)로 선언 가능</li>
+<li>의미 있는 단어로 표기하면 좋다</li>
+<li>대소문자가 구분된다</li>
+<li>특별한 의미가 있는 예약어는 쓰지 않는다.</li>
+</ul>
+<h2 id="기본-자료형-primitive-data-types">
+<span class="mr-2">기본 자료형 (Primitive Data Types)</span><a href="#%EA%B8%B0%EB%B3%B8-%EC%9E%90%EB%A3%8C%ED%98%95-primitive-data-types" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>data type: 파이썬이 처리할 수 있는 데이터 유형.</li></ul>
+<p><img data-src="/assets/img/boostcamp/2022-09-23-01-15-47.png" alt="" data-proofer-ignore></p>
+<ul><li>메모리 공간을 차지하는지 데이터 타입마다 다름.</li></ul>
+<h1 id="list-또는-array">List 또는 Array</h1>
+<h2 id="정의">
+<span class="mr-2">정의</span><a href="#%EC%A0%95%EC%9D%98" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>시퀀스 자료형, 여러 데이터들의 집합</li>
+<li>int, float 같은 다양한 데이터 타입 포함.</li>
+</ul>
+<h2 id="indexing">
+<span class="mr-2">indexing</span><a href="#indexing" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>list에 있는 값들은 주소를 가짐<ul><li>주소를 사용해 할당된 값을 호출.</li></ul>
+</li></ul>
+<h2 id="slicing">
+<span class="mr-2">slicing</span><a href="#slicing" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>list의 값들을 잘라서 쓰는 것이 슬라이싱</li>
+<li>list의 주소 값을 기반으로 부분 값을 반환.</li>
+</ul>
+<h2 id="리스트-연산">
+<span class="mr-2">리스트 연산</span><a href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%97%B0%EC%82%B0" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li><code class="language-plaintext highlighter-rouge">concatenate, in, append, extend, del, pop</code></li></ul>
+<h2 id="메모리-저장-방식">
+<span class="mr-2">메모리 저장 방식</span><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5-%EB%B0%A9%EC%8B%9D" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>list는 다양한 data type이 하나의 list에 들어가도 됨</li>
+<li>파이썬은 해당 리스트 변수에는 리스트 주소값이 저장됨.</li>
+</ul>
+<h2 id="패킹과-언패킹">
+<span class="mr-2">패킹과 언패킹</span><a href="#%ED%8C%A8%ED%82%B9%EA%B3%BC-%EC%96%B8%ED%8C%A8%ED%82%B9" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>패킹: 한 변수에 여러 개의 데이터를 넣는 것</li>
+<li>언패킹: 한 변수의 데이터를 가각의 변수로 반환.</li>
+</ul>
+<h2 id="이차원-리스트">
+<span class="mr-2">이차원 리스트</span><a href="#%EC%9D%B4%EC%B0%A8%EC%9B%90-%EB%A6%AC%EC%8A%A4%ED%8A%B8" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>리스트 안에 리스트를 넣을 수 있음</li></ul>
+<hr>
+<h1 id="function--console-io">Function &amp; Console I/O</h1>
+<h2 id="function">
+<span class="mr-2">Function</span><a href="#function" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<h3 id="함수의-개요">
+<span class="mr-2">함수의 개요</span><a href="#%ED%95%A8%EC%88%98%EC%9D%98-%EA%B0%9C%EC%9A%94" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul>
+<li><p>어떤 일을 수행하는 코드의 덩어리</p></li>
+<li>반복적인 수행을 1회만 작성 후 호출</li>
+<li>코드를 논리적인 단위로 분리 (코드 = 하나의 보고서)</li>
+<li>캡슐화: 인터페이스만 알면 타인의 코드 사용</li>
+</ul>
+<h3 id="함수-수행-순서">
+<span class="mr-2">함수 수행 순서</span><a href="#%ED%95%A8%EC%88%98-%EC%88%98%ED%96%89-%EC%88%9C%EC%84%9C" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul>
+<li>함수 부분를 제외한 메인프로그램부터 시작</li>
+<li>함수 호출 시 함수 부분을 수행 후 되돌아옴</li>
+</ul>
+<p><img data-src="/assets/img/boostcamp/2022-09-23-10-33-26.png" alt="" data-proofer-ignore></p>
+<h3 id="parameter-vs-argument">
+<span class="mr-2">Parameter vs Argument</span><a href="#parameter-vs-argument" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul>
+<li><p>parameter: 함수의 입력 값 인터페이스 def f(x): return 2 * x + 7</p></li>
+<li><p>argument: 실제 Parameter에 대입된 값 print(f(2))</p></li>
+</ul>
+<h3 id="함수-형태">
+<span class="mr-2">함수 형태</span><a href="#%ED%95%A8%EC%88%98-%ED%98%95%ED%83%9C" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h3>
+<ul><li>parameter 유무, 반환 값(return value) 유무에 따라 함수의 형태가 다름</li></ul>
+<div class="table-wrapper"><table>
+<thead><tr>
+<th> </th>
+<th>parameter 없음</th>
+<th>parameter 존재</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>반환 값 없음</strong></td>
+<td>함수 내의 수행문만 수행</td>
+<td>parameter를 사용, 수행문만 수행</td>
+</tr>
+<tr>
+<td><strong>반환 값 존재</strong></td>
+<td>parameter없이, 수행문 수행 후 결과값 반환</td>
+<td>parameter를 사용하여 수행문 수행 후 결과값 반환</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="콘솔창-입출력">
+<span class="mr-2">콘솔창 입출력</span><a href="#%EC%BD%98%EC%86%94%EC%B0%BD-%EC%9E%85%EC%B6%9C%EB%A0%A5" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>
+<code class="language-plaintext highlighter-rouge">input</code>함수는 콘솔창에서 <strong>문자열</strong>을 입력 받는 함수</li>
+<li>
+<code class="language-plaintext highlighter-rouge">print</code>함수로 콘솔창에 데이터 출력.</li>
+</ul>
+<hr>
+<h1 id="conditional">Conditional()</h1>
+<h2 id="조건문이란">
+<span class="mr-2">조건문이란?</span><a href="#%EC%A1%B0%EA%B1%B4%EB%AC%B8%EC%9D%B4%EB%9E%80" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>조건에 따라서 특벙한 동작을 하게하는 명령어</li>
+<li>조건문은 <strong>조건을 나타내는 기준</strong>과 <strong>실행해야 할 명령</strong>으로 구성됨</li>
+<li>조건의 참, 거짓에 따라 실행해야 할 명령이 수행되거나 되지 않음</li>
+<li>파이썬은 조건문으로 <code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">else</code>, <code class="language-plaintext highlighter-rouge">elif</code>을 사용한다</li>
+</ul>
+<p><img data-src="/assets/img/boostcamp/2022-09-23-10-52-51.png" alt="" data-proofer-ignore></p>
+<ul>
+<li>
+<code class="language-plaintext highlighter-rouge">is</code>연산자는 <strong>메모리 주소</strong>가 같아야 한다.</li>
+<li>숫자열은 0이 아닌 숫자면, string에서는 존재하면 참이 된다.</li>
+</ul>
+<h2 id="논리-키워드-사용-and-or-not">
+<span class="mr-2">논리 키워드 사용: and, or, not</span><a href="#%EB%85%BC%EB%A6%AC-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%82%AC%EC%9A%A9-and-or-not" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>조건문을 표현할 때 집합의 논리 키워드를 함께 사용하여 참과 거짓을 판단하기도 함.</li></ul>
+<h1 id="loop반복문">Loop(반복문)</h1>
+<h2 id="반복문이란">
+<span class="mr-2">반복문이란?</span><a href="#%EB%B0%98%EB%B3%B5%EB%AC%B8%EC%9D%B4%EB%9E%80" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>정해진 동작을 반복적으로 수행하게 하는 명령문</li>
+<li>반복문은 <strong>반복 시작 조건</strong>, <strong>종료 조건</strong>, <strong>수행 명령</strong>으로 구성된다</li>
+<li>파이썬은 반복문으로 <code class="language-plaintext highlighter-rouge">for</code>, <code class="language-plaintext highlighter-rouge">while</code>등의 명령 키워드를 사용한다.</li>
+</ul>
+<h2 id="반복의-제어-break-continue">
+<span class="mr-2">반복의 제어: break, continue</span><a href="#%EB%B0%98%EB%B3%B5%EC%9D%98-%EC%A0%9C%EC%96%B4-break-continue" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>break: 특정 조건에서 반복 종료</li>
+<li>continue: 특정 조건에서 남은 반복 명령 skip</li>
+</ul>
+<hr>
+<h1 id="string">String</h1>
+<h2 id="개요">
+<span class="mr-2">개요</span><a href="#%EA%B0%9C%EC%9A%94" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>시퀀스 자료형으로 문자형 data를 메모리에 저장.</li>
+<li>영문자 한 글자는 1byte의 메모리 공간을 사용한다.</li>
+</ul>
+<h2 id="1-byte의-메모리-공간">
+<span class="mr-2">1 byte의 메모리 공간???</span><a href="#1-byte%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>컴퓨터는 2진수로 데이터를 저장</li>
+<li>이진수 한 자릿수는 1bit로 저장됨</li>
+<li>즉 1 bit는 0 또는 1</li>
+<li>1 byte = 9 bit = $2^8$ = 256 까지 저장 가능</li>
+<li>컴퓨터는 문자를 직접적으로 인식 X</li>
+<li>이를 위해 2진수를 문자로 변환하는 표준 규칙을 정함</li>
+<li>이러한 규칙에 따라 문자를 2진수로 변환하여 저장하거나 저장된 2진수를 숫자로 변환하여 표시한다.<ul><li>예) 대문자 U는 이진수로 “1000011” 변환됨 (UTF-8 기준)</li></ul>
+</li>
+</ul>
+<h2 id="프로그램-언어에서-데이터-타입">
+<span class="mr-2">프로그램 언어에서 데이터 타입</span><a href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>각 타입 별로 메모리 공간을 할당 받은 크기가 다름</li></ul>
+<p><img data-src="/assets/img/boostcamp/2022-09-23-11-10-57.png" alt="" data-proofer-ignore></p>
+<ul>
+<li>메모리 공간에 따라 표현할 수 있는 숫자범위가 다름</li>
+<li>데이터 타입은 메모리의 효율적 활용을 위해 매우 중요하다.</li>
+</ul>
+<h2 id="문자열-특징">
+<span class="mr-2">문자열 특징</span><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%8A%B9%EC%A7%95" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>인덱싱<ul>
+<li>문자열의 각 문자는 개별 주소(offset)를 가짐</li>
+<li>이 주소를 사용해 할당된 값을 가져오는 것이 인덱싱이라고 한다</li>
+<li>list와 같은 형태로 데이터를 처리한다.</li>
+</ul>
+</li>
+<li>슬라이싱<ul><li>문자열의 주소값을 기반으로 문자열의 부분값을 반환</li></ul>
+</li>
+<li>raw string<ul><li><code class="language-plaintext highlighter-rouge">r'hello \n works in raw string'</code></li></ul>
+</li>
+</ul>
+<h1 id="advanced-function-concept">Advanced Function Concept</h1>
+<h2 id="함수-호출-방식-개요">
+<span class="mr-2">함수 호출 방식 개요</span><a href="#%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EB%B0%A9%EC%8B%9D-%EA%B0%9C%EC%9A%94" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>함수에서 parameter를 전달하는 방식<ol><li>값에 의한 호출(Call by Value)</li></ol>
+<ul>
+<li>함수에서 parameter를 넘길 때 값만 넘긴다<ol><li>참조의 의한 호출(Call by Reference)</li></ol>
+</li>
+<li>함수에서 parameter를 넘길 때 메모리 주소를 넘긴다<ol><li>객체 참조에 의한 호출(Call by Object Reference)</li></ol>
+</li>
+<li>파이썬은 객체의 주소가 함수로 전달되는 방식을 사용한다</li>
+<li>전달된 객체를 참조하여 변경 시 호출자에게 영향을 주나 새로운 객체를 만드면 호출자에게 영향을 주지 않는다.</li>
+</ul>
+</li></ul>
+<h2 id="scoping-rule-변수의-범위">
+<span class="mr-2">Scoping Rule (변수의 범위)</span><a href="#scoping-rule-%EB%B3%80%EC%88%98%EC%9D%98-%EB%B2%94%EC%9C%84" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>변수가 사용되는 범위</li>
+<li>지역변수(local variable): 함수내에서만 사용</li>
+<li>전역변수(Global variable): 프로그램 전체에 사용</li>
+<li>함수 내에 전역변수랑 같은 이름의 변수를 선언하면 새로운 지역 변수가 생긴다</li>
+<li>함수 내에서 전역변수 사용시 global 키워드를 사용하면 된다.</li>
+</ul>
+<h2 id="recursive-function-재귀함수">
+<span class="mr-2">Recursive Function (재귀함수)</span><a href="#recursive-function-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul>
+<li>자기자신을 호출하는 함수</li>
+<li>재귀 종료 조건 존재하며 종료 조건까지 함수호출을 반복한다.</li>
+</ul>
+<h2 id="function-type-hints">
+<span class="mr-2">Function Type Hints</span><a href="#function-type-hints" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<div class="language-python highlighter-rouge">
+<div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td>
+<td class="rouge-code"><pre>  <span class="k">def</span> <span class="nf">type_hint_example</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<ul>
+<li>사용자에게 인터페이스를 명확히 알려줄 수 있다</li>
+<li>함수의 문서화시 parameter에 대한 정보를 명확히 알 수 있다</li>
+<li>시스템 전체적인 안정성을 확보할 수 있다.</li>
+</ul>
+<h2 id="function-docstring">
+<span class="mr-2">Function docstring</span><a href="#function-docstring" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>
+</h2>
+<ul><li>파이썬 함수에 대한 상세스펙을 사전에 작성해서 사용자의 이행도를 증가한다</li></ul>
+<div class="language-python highlighter-rouge">
+<div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td>
+<td class="rouge-code"><pre>  <span class="k">def</span> <span class="nf">add_binary</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
+    Returns the sum of two decimal numbers in binary digits.
+
+      Parameters:
+        a (int): A decimal integer
+        b (int): Another decimal integer
+
+      Return:
+        binary_sum(str): Binary string of the sum of a and b
+    """</span>
+    <span class="n">binary_sum</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">binary_sum</span>
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<hr>
+</div>
+<div class="post-tail-wrapper text-muted">
+<div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href="/categories/boostcamp-ai-tech/">boostcamp AI Tech</a>, <a href="/categories/week-1-python/">Week 1 - Python</a>
+</div>
+<div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/boostcamp/" class="post-tag no-text-decoration">boostcamp</a> <a href="/tags/python/" class="post-tag no-text-decoration">python</a> <a href="/tags/level-1/" class="post-tag no-text-decoration">level 1</a> <a href="/tags/week-1/" class="post-tag no-text-decoration">week 1</a>
+</div>
+<div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
+<div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div>
+<div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=%5Bboostcamp+AI+Tech%5D%5BPython%5D+Lecture+2%3A+Basic+Python+-+Coding+Fish&amp;url=https%3A%2F%2Fghlrobin.github.io%2Fposts%2Fday-1-lecture-2%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=%5Bboostcamp+AI+Tech%5D%5BPython%5D+Lecture+2%3A+Basic+Python+-+Coding+Fish&amp;u=https%3A%2F%2Fghlrobin.github.io%2Fposts%2Fday-1-lecture-2%2F" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fghlrobin.github.io%2Fposts%2Fday-1-lecture-2%2F&amp;text=%5Bboostcamp+AI+Tech%5D%5BPython%5D+Lecture+2%3A+Basic+Python+-+Coding+Fish" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span>
+</div>
+</div>
+</div>
+</div></div>
+<div id="panel-wrapper" class="col-xl-3 pl-2 text-muted">
+<div class="access">
+<div id="access-lastmod" class="post">
+<div class="panel-heading">Recently Updated</div>
+<ul class="post-content pl-0 pb-1 ml-1 mt-2">
+<li><a href="/posts/09-generative-1/">[boostcamp AI Tech][DL Basic] Lecture 9: Generative Models Part 1</a></li>
+<li><a href="/posts/08-transformer/">[boostcamp AI Tech][DL Basic] Lecture 8: Transformer</a></li>
+<li><a href="/posts/04-convolutional/">[boostcamp AI Tech][DL Basic] Lecture 4: Convolutional Neural Networks</a></li>
+<li><a href="/posts/05-modern/">[boostcamp AI Tech][DL Basic] Lecture 5: Modern Convolutional Neural Networks</a></li>
+<li><a href="/posts/06-computer/">[boostcamp AI Tech][DL Basic] Lecture 6: Computer Vision Applications</a></li>
+</ul>
+</div>
+<div id="access-tags">
+<div class="panel-heading">Trending Tags</div>
+<div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/boostcamp/">boostcamp</a> <a class="post-tag" href="/tags/level-1/">level 1</a> <a class="post-tag" href="/tags/pytorch/">pytorch</a> <a class="post-tag" href="/tags/week-2/">week 2</a> <a class="post-tag" href="/tags/week-3/">week 3</a> <a class="post-tag" href="/tags/dl-basic/">dl basic</a> <a class="post-tag" href="/tags/week-1/">week 1</a> <a class="post-tag" href="/tags/day-in-review/">day in review</a> <a class="post-tag" href="/tags/ai-math/">ai math</a> <a class="post-tag" href="/tags/python/">python</a>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+<div class="panel-heading pl-3 pt-2 mb-2">Contents</div>
+<nav id="toc" data-toggle="toc"></nav>
+</div>
+</div>
+</div>
+<div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4">
+<div id="related-posts" class="mt-5 mb-2 mb-sm-4">
+<h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3>
+<div class="card-deck mb-4">
+<div class="card"> <a href="/posts/day-1-lecture-1/"><div class="card-body"> <em class="small" data-ts="1663549200" data-df="ll"> Sep 19, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[boostcamp AI Tech][Python] Lecture 1: Intro. to Python</h3>
+<div class="text-muted small"><p> Basic Computer Class for Newbies 컴퓨터 OS 파일 시스템 파일과 디렉토리 절대 경로와 상대 경로 터미널 정의 기본 명령어 Python pyt...</p></div>
+</div></a>
+</div>
+<div class="card"> <a href="/posts/day-1-lecture-3/"><div class="card-body"> <em class="small" data-ts="1663552800" data-df="ll"> Sep 19, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[boostcamp AI Tech][Python] Lecture 3: Python Data Structure, Pythonic Code and OOP</h3>
+<div class="text-muted small"><p> Python Data Structure 데이터 구조 생각해보기 기본 데이터 구조 Stack(스택) Queue(큐) Tuple(튜플) Set(집합) Dictionary(사전) collections deque OrderedDict ...</p></div>
+</div></a>
+</div>
+<div class="card"> <a href="/posts/day-1/"><div class="card-body"> <em class="small" data-ts="1663592400" data-df="ll"> Sep 19, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[boostcamp AI Tech][Day 1] Start of Boostcamp AI Tech 4기</h3>
+<div class="text-muted small"><p> And Boostcamp begins <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"> Things I Did MT Zoom Orientation (Video On &amp; Mic Off) Basic Assignments and Quizzes First Peer Session Things I Will D...</p></div>
+</div></a>
+</div>
+</div>
+</div>
+<div class="post-navigation d-flex justify-content-between"> <a href="/posts/day-1-lecture-1/" class="btn btn-outline-primary" prompt="Older"><p>[boostcamp AI Tech][Python] Lecture 1: Intro. to Python</p></a> <a href="/posts/day-1-lecture-3/" class="btn btn-outline-primary" prompt="Newer"><p>[boostcamp AI Tech][Python] Lecture 3: Python Data Structure, Pythonic Code and OOP</p></a>
+</div>
+</div></div>
+<footer class="row pl-3 pr-3"><div class="col-12 d-flex justify-content-between align-items-center text-muted pl-0 pr-0">
+<div class="footer-left"><p class="mb-0"> © 2022 <a href="https://github.com/ghlrobin">Coding Fish</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div>
+<div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div>
+</div></footer>
+</div>
+<div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content">
+<div id="search-hints"><div id="access-tags">
+<div class="panel-heading">Trending Tags</div>
+<div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/boostcamp/">boostcamp</a> <a class="post-tag" href="/tags/level-1/">level 1</a> <a class="post-tag" href="/tags/pytorch/">pytorch</a> <a class="post-tag" href="/tags/week-2/">week 2</a> <a class="post-tag" href="/tags/week-3/">week 3</a> <a class="post-tag" href="/tags/dl-basic/">dl basic</a> <a class="post-tag" href="/tags/week-1/">week 1</a> <a class="post-tag" href="/tags/day-in-review/">day in review</a> <a class="post-tag" href="/tags/ai-math/">ai math</a> <a class="post-tag" href="/tags/python/">python</a>
+</div>
+</div></div>
+<div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div>
+</div></div>
+</div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false">
+<div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+</div>
+<div class="toast-body text-center pt-0">
+<p class="pl-2 pr-2 mb-3">A new version of content is available.</p>
+<button type="button" class="btn btn-primary" aria-label="Update"> Update </button>
+</div>
+</div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script> /* see: <https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options> */ MathJax = { tex: { inlineMath: [ /* start/end delimiter pairs for in-line math */ ['$','$'], ['\\(','\\)'] ], displayMath: [ /* start/end delimiter pairs for display math */ ['$$', '$$'], ['\\[', '\\]'] ] } }; </script> <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script>
